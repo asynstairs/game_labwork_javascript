@@ -1,0 +1,15 @@
+{
+  "name": "web_lab",
+  "version": "1.0.0",
+  "description": "lab_work",
+  "main": "index.js",
+  "scripts": {
+    "test": "s"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.4"
+  }
+}
