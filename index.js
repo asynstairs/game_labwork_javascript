@@ -92,12 +92,11 @@ function notAlone(x, y, player_id) {
                     console.log('[UPPER] Not found friend at ', x+i, y+j);
                     for (let k = -1; k < 2; k++) {
                         for (let l = -1; l < 2; l++) {
-                            if (field[x+i+k][y+j+l] === 1) {
+                            if (field[x+i+k][y+j+l] === 1 || field[x+i+k][y+j+l] === 3) {
                                 console.log('[LOWER] Found friend at ', x+i+k, y+j+l);
                                 return true;
                             } else {
                                 console.log('[LOWER] Not Found friend at ', x+i+k, y+j+l);
-                                return false;
                             }
                         }
                     }
@@ -111,12 +110,11 @@ function notAlone(x, y, player_id) {
                     console.log('[UPPER] Not found friend at ', x+i, y+j);
                     for (let k = -1; k < 1; k++) {
                         for (let l = -1; l < 1; l++) {
-                            if (field[x+i+k][y+j+l] === 2) {
+                            if (field[x+i+k][y+j+l] === 2 || field[x+i+k][y+j+l] === 4) {
                                 console.log('[LOWER] Found friend at ', x+i+k, y+j+l);
                                 return true;
                             } else {
                                 console.log('[LOWER] Not Found friend at ', x+i+k, y+j+l);
-                                return false;
                             }
                         }
                     }
@@ -169,7 +167,7 @@ io.sockets.on('connection', function(socket) {
                                 attack: true
                             });
                             field[data[0]][data[1]] = 3;
-                        } else {
+                        } else if (field[data[0]][data[1]] === 0){
                             io.sockets.emit('step', {
                                 step: isStep,
                                 player: data[2],
@@ -194,7 +192,7 @@ io.sockets.on('connection', function(socket) {
                             attack: true
                         });
                         field[data[0]][data[1]] = 4;
-                    } else {
+                    } else if (data[2] === 2 && field[data[0]][data[1]] === 0) {
                         io.sockets.emit('step', {
                             step: isStep,
                             player: data[2],
