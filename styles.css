@@ -11,6 +11,29 @@ table {
     border-radius: 20px;
 }
 
+label {
+    font-family: Arial;
+    font-size: 28px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+textarea {
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+    font-family: Arial;
+    border: 16px solid #ECE9E0;
+    border-radius: 20px;
+    background: #ECE9E0;
+    color: #000000;
+    box-shadow: black;
+}
+
 th {
     font-size: 18px;
     padding: 10px 15px;
